@@ -4,6 +4,7 @@
 - 메소드명 : public void test()
 	1부터 사용자로부터 입력 받은 정수까지 존재하는 짝수의 합을 출력하세요. 
  	(for문 활용)
+
 [문제 2]
 - 클래스 : com.kh.test.loop.Test2.java
 - 메소드명 : public void test()
@@ -11,6 +12,7 @@
 	홀수와 짝수를 나눠서 홀수면 "수", 짝수면 "박"을 
 	출력 하세요.
   	예) 4입력 : 수박수박 / 5입력 : 수박수박수 출력
+
 [문제 4]
 - 클래스 : com.kh.test.loop.Test4.java
 - 메소드명 : public void test()
@@ -27,6 +29,7 @@
 	문자열 입력 : apple_test123
 	문자 입력 : ㄱ
 	영문자가 아닙니다.
+	
 [문제 5]
 - 클래스 : com.kh.test.loop.Test5.java
 - 메소드명 : public void test()
