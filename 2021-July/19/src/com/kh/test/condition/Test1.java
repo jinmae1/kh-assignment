@@ -20,7 +20,7 @@ public class Test1 {
         you = sc.nextInt();
 
         if (!(you == 1 || you == 2 || you == 3)) {
-            System.out.println("1, 2, 3 중에 하나만 입력하세요.");
+            System.err.println("1, 2, 3 중에 하나만 입력하세요.");
             return;
         }
 

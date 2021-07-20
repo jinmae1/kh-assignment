@@ -10,8 +10,8 @@ public class Main {
 		Test4 t4 = new Test4();
 		Test5 t5 = new Test5();
 
-		// t1.test();
-		t2.test();
+		t1.test();
+		// t2.test();
 		// t3.test();
 		// t4.test();
 		// t5.test();
