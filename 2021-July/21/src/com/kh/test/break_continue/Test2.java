@@ -14,21 +14,20 @@ public class Test2 {
 
         randNum = rand.nextInt(100) + 1;
 
-        for (int i = 1; i <= 5; i++) {
+        int i = 1;
+        while (true) {
             System.out.print("Number: ");
             userNum = sc.nextInt();
 
             if (userNum > randNum) {
                 System.out.println("입력하신 정수보다 작습니다.");
             } else if (userNum < randNum) {
-
                 System.out.println("입력하신 정수보다 큽니다.");
             } else {
                 System.out.println("정답입니다. " + i + "회 만에 정답을 맞추셨습니다.");
                 break;
             }
+            i++;
         }
-
-        System.out.println("정답은 " + randNum + "입니다.");
     }
 }

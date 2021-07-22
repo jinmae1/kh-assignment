@@ -16,6 +16,7 @@ public class Test3 {
 
             if (num <= 2) {
                 System.out.println("잘못 입력하셨습니다. 다시 입력하세요.");
+                System.out.print("Number(over 2): ");
                 continue;
 
             } else
@@ -23,7 +24,12 @@ public class Test3 {
 
         } while (true);
 
-        for (int i = 2; i <= num / 2; i++) {
+        if (num % 2 == 0) {
+            System.out.println("소수가 아니다.");
+            return;
+        }
+
+        for (int i = 3; i <= num / 2; i += 2) {
             if (num % i == 0) {
                 System.out.println("소수가 아니다.");
                 return;

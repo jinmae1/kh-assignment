@@ -36,18 +36,12 @@ public class Test1 {
         System.out.print("Number b: ");
         b = sc.nextInt();
 
-        if (b < a) {
-            big = a;
-            small = b;
-        } else {
-            big = b;
-            small = a;
-        }
-        if (small % 2 == 0)
-            small++;
+        small = a <= b ? a : b;
+        big = b < a ? a : b;
 
-        for (; small <= big; small += 2) {
-            oddSum += small;
+        int i = small % 2 == 0 ? small + 1 : small;
+        for (; i <= big; i += 2) {
+            oddSum += i;
         }
         System.out.printf("%d부터 %d까지의 홀수의 합은 %d입니다.%n", small, big, oddSum);
 
