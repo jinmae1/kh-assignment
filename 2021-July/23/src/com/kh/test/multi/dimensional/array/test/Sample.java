@@ -19,12 +19,9 @@ public class Sample {
 		for (int i = 0; i < arr.length; i++) {
 			for (int j = 0; j < arr[i].length; j++) {
 				arr[i][j] = rand.nextInt(100) + 1;
+				if (arr[i][j] % 5 == 0)
+					System.out.printf("%d (%d, %d)%n", arr[i][j], i, j);
 			}
-		}
-
-		for (int i = 0; i < arr.length; i++) {
-			System.out.printf("arr[%d][4]: %d%n", i, arr[i][4]);
-
 		}
 	}
 

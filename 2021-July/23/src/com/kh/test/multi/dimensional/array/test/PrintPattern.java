@@ -47,6 +47,7 @@ public class PrintPattern {
 	}
 
 	public void pattern4(int N) {
+
 		for (int i = 1; i <= N; i++) {
 			for (int j = 1; j <= N - i; j++)
 				System.out.print(" ");
@@ -57,6 +58,7 @@ public class PrintPattern {
 	}
 
 	public void pattern5(int N) {
+
 		for (int i = 1; i <= N; i += 2) {
 			for (int j = 1; j < i; j++)
 				System.out.print(" ");
@@ -67,6 +69,7 @@ public class PrintPattern {
 	}
 
 	public void pattern6(int N) {
+
 		for (int i = 1; i <= N; i++) {
 			for (int j = 1; j <= 2 * Math.abs(i - (N / 2 + 1)); j++)
 				System.out.print(" ");
@@ -77,6 +80,7 @@ public class PrintPattern {
 	}
 
 	public void pattern7(int N) {
+
 		for (int i = 1; i <= N; i++) {
 			for (int j = 1; j <= Math.abs(i - (N / 2 + 1)); j++)
 				System.out.print(" ");
@@ -87,6 +91,7 @@ public class PrintPattern {
 	}
 
 	public void pattern8(int N) {
+
 		for (int i = 1; i <= N; i++) {
 			for (int j = 1; j <= -2 * Math.abs(i - (N / 2 + 1)) + N - 1; j++)
 				System.out.print(" ");
