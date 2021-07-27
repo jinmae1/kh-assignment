@@ -1,0 +1,26 @@
+@실습문제 : UML 클래스 다이어그램
+net.kh.member.model.Member
+net.kh.member.run.Run
+
+net.kh.member.model.Member
+---------------------------
+- memberId : String
+- memberPwd : String
+- memberName : String
+- age : int
+- gender : char
+- phone : String
+- email : String
+---------------------------
++ Member()
+---------------------------
++ setter() / getter()
+
+        ^
+        |
+        |
+        |
+net.kh.member.run.Run
+---------------------------
++ main(String[] args) : static void
+
