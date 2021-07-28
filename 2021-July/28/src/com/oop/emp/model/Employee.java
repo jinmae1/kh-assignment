@@ -69,7 +69,8 @@ public class Employee {
         System.out.println();
     }
 
-    public void deleteEmp() {
+    // Deprecated
+    public void empDelete() {
         this.setEmpNo(0);
         this.setEmpName(null);
         this.setDept(null);
