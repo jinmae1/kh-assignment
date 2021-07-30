@@ -10,8 +10,8 @@ import com.oop.coffee.model.dto.Coffee;
 public class CoffeeManager {
 
     private final int MAX_COFFEE = 3;
+    private Coffee[] arrCoffee = new Coffee[MAX_COFFEE];
 
-    Coffee[] arrCoffee = new Coffee[MAX_COFFEE];
     Scanner sc = new Scanner(System.in);
 
     public void inputCoffee() {
@@ -22,17 +22,16 @@ public class CoffeeManager {
 
             Coffee coffee = new Coffee();
             System.out.print("Coffee origin: ");
-            coffee.setOrigin(sc.nextLine());
+            coffee.setOrigin(sc.next());
 
             System.out.print("Coffee location: ");
-            coffee.setLocation(sc.nextLine());
+            coffee.setLocation(sc.next());
 
             arrCoffee[i] = coffee;
 
             if (i < arrCoffee.length - 1) {
-                System.out.print("Stop? (Y/(default)N):");
+                System.out.print("Stop? (Y/N(Default)):");
                 stop = Character.toUpperCase(sc.next().charAt(0)) == 'Y' ? true : false;
-                sc.nextLine();
 
                 if (stop)
                     break;
