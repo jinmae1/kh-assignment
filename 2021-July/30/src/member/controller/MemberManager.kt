@@ -24,16 +24,20 @@ class MemberManager {
 
             for(i in 0 until pSilver)
             {
-                if (this.silver[i] != null)
-                    println(this.formatData(this.silver[i]))
-
+                println(this.formatData(this.silver[i]))
             }
     }
 
     private fun formatData(s: Silver?): String {
-        if (s == null) return ""
-        else 
-            return s.name + "\t\t" + s.grade + "\t\t" + s.point + "\t\t" + s.getInterest()
+
+        // if(s != null) s.toUpperCase()
+        // else null
+
+        // s?.toUpperCase()
+
+        // if (s == null) return ""
+        // else 
+            return s?.name + "\t\t" + s?.grade + "\t\t" + s?.point + "\t\t" + s?.getInterest()
     }
     
 }

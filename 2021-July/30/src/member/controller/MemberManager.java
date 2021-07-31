@@ -1,9 +1,9 @@
 package member.controller;
 
 import member.model.vo.Silver;
-import member.model.vo.VVip;
-import member.model.vo.Vip;
 import member.model.vo.Gold;
+import member.model.vo.Vip;
+import member.model.vo.VVip;
 
 /**
  * MemberManager

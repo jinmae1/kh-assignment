@@ -4,7 +4,7 @@ class Silver {
 
     var name: String? = null
     var grade: String? = null
-    var point: Int = 0
+    var point: Int? = 0
 
     // * https://stackoverflow.com/questions/40352879/what-is-the-equivalent-of-java-static-final-fields-in-kotlin
 
@@ -18,13 +18,13 @@ class Silver {
 
     // * https://velog.io/@conatuseus/Kotlin-%EC%83%9D%EC%84%B1%EC%9E%90-%EB%BF%8C%EC%8B%9C%EA%B8%B0
 
-    constructor(name: String?, grade : String, point: Int) {
+    constructor(name: String?, grade : String?, point: Int?) {
         this.name = name
         this.grade = grade
         this.point = point
     }
 
-    fun getInterest(): Float {
+    fun getInterest(): Float? {
         return this.companion.interest
 
     }
