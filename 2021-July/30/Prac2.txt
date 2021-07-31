@@ -22,7 +22,7 @@
  3, 모든 필드값을 하나의 문장(문자열합치기)으로 만들어 리턴하는 메소드 추가함
 	public String empInformation()
 
-* control 클래스 : com.oop.emp.controller.EmpArrayTest
+* control 클래스 : com.oop.emp.controller.EmployeeManager
 	1. control클래스 생성시 3명의 사원정보를 담을 수 있는 객체배열 eArr 생성함.
 	2. eArr의 각 요소 Employee의 정보를 출력할 수 있는 메소드 printEmployees:void
 	3. eArr의 각 요소 Employee의 연봉정보를 계산해 출력하는 메소드 printAnnualSalary:void
