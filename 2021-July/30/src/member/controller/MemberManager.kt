@@ -37,7 +37,7 @@ class MemberManager {
 
         // if (s == null) return ""
         // else 
-            return s?.name + "\t\t" + s?.grade + "\t\t" + s?.point + "\t\t" + s?.getInterest()
+            return s?.name + "\t\t" + s?.grade + "\t\t" + s?.point + "\t\t" + "%.2f".format(s?.getInterestPoint())
     }
     
 }
