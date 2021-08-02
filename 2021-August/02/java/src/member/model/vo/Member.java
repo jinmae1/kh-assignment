@@ -1,27 +1,20 @@
 package member.model.vo;
 
-/**
- * VVip
- */
-public class VVip {
+public class Member {
 
 	private String name;
 	private String grade;
 	private int point;
-	private static float interest = 0.15f;
+	private static float interest;
+	// ? How to inherit static fields?
 
-	public VVip() {
-
+	public Member() {
 	}
 
-	public VVip(String name, String grade, int point) {
+	public Member(String name, String grade, int point) {
 		this.name = name;
 		this.grade = grade;
 		this.point = point;
-	}
-
-	public float getInterestPoint() {
-		return point * interest;
 	}
 
 	public String getName() {
@@ -46,6 +39,19 @@ public class VVip {
 
 	public void setPoint(int point) {
 		this.point = point;
+	}
+
+	public float getInterset() {
+		return Member.interest;
+
+	}
+
+	public void setInterest(float interest) {
+		Member.interest = interest;
+	}
+
+	public float getInterestPoint() {
+		return point * interest;
 	}
 
 }
