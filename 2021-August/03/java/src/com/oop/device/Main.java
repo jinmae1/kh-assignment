@@ -19,8 +19,10 @@ public class Main {
 				((TV) device).channelUp();
 
 			else if (device instanceof Laptop)
-				System.out.println(device.getName() + "'s capacity: " + ((Laptop) device).getCapacity());
+				System.out.println(device.getName() + "'s capacity: " + ((Laptop) device).getCapacity() + "GB");
 
+			else
+				break;
 		}
 		System.out.println();
 

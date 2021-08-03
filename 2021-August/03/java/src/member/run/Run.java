@@ -17,7 +17,7 @@ public class Run {
 		m.insertMember(new Gold("오회장", "Gold", 3000));
 
 		m.insertMember(new Vip("이순신", "Vip", 10000));
-		m.insertMember(new VVip("신사임당", "VVip", 100000));
+		m.insertMember(new VVip("사임당", "VVip", 100000));
 
 		m.printData();
 
