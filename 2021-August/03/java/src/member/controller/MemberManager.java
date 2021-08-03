@@ -5,11 +5,11 @@ import member.model.vo.Member;
 public class MemberManager {
 
 	private static int pMember = 0;
-	private static final int MAX_MEMBER = 10;
+	private static final int MAX_MEMBER = 40;
 
 	private Member[] member = new Member[MAX_MEMBER];
 
-	public void memberInsert(Member member) {
+	public void insertMember(Member member) {
 		this.member[pMember++] = member;
 	}
 
