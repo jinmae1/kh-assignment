@@ -13,8 +13,26 @@ public class Main {
 		// 1. arr을 순회하면서,
 		// tv객체라면 channelUp메소드 호출
 		// laptop객체 용량 정보를 출력
+		for (Device device : arr) {
+
+			if (device instanceof TV)
+				((TV) device).channelUp();
+
+			else if (device instanceof Laptop)
+				System.out.println(device.getName() + "'s capacity: " + ((Laptop) device).getCapacity());
+
+		}
+		System.out.println();
 
 		// 2. arr을 순회하면서
 		// toString을 통해 모든 필드정보를 조회(동적바인딩)
+
+		for (Device device : arr) {
+			if (device == null) {
+				break;
+			}
+			System.out.println(device);
+		}
+
 	}
 }
