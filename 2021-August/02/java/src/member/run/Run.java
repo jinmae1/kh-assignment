@@ -1,7 +1,5 @@
 package member.run;
 
-import java.util.Arrays;
-
 import member.controller.MemberManager;
 import member.model.vo.*;
 

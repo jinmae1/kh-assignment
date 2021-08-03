@@ -14,7 +14,7 @@ public class Silver extends Member {
 
 	@Override
 	public float getInterestPoint() {
-		return super.getPoint() * interest;
+		return this.getPoint() * interest;
 	}
 
 }

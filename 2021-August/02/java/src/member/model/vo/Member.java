@@ -5,8 +5,6 @@ public class Member {
 	private String name;
 	private String grade;
 	private int point;
-	private static float interest;
-	// ? How to inherit static fields?
 
 	public Member() {
 	}
@@ -41,17 +39,8 @@ public class Member {
 		this.point = point;
 	}
 
-	public float getInterset() {
-		return Member.interest;
-
-	}
-
-	public void setInterest(float interest) {
-		Member.interest = interest;
-	}
-
 	public float getInterestPoint() {
-		return point * interest;
+		return point * 0;
 	}
 
 }

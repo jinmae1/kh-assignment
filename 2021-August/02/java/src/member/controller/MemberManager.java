@@ -27,4 +27,5 @@ public class MemberManager {
 		return String.format("%s\t\t%s\t\t%d\t\t%.2f", member.getName(), member.getGrade(), member.getPoint(),
 				member.getInterestPoint());
 	}
+
 }
