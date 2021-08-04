@@ -1,6 +1,8 @@
 package member.model.vo;
 
-public class VVip extends Member {
+import member.controller.Buyable;
+
+public class VVip extends Member implements Buyable {
 
 	private static float interest = 0.15f;
 
@@ -17,4 +19,8 @@ public class VVip extends Member {
 		return this.getPoint() * interest;
 	}
 
+	@Override
+	public int buy(int price) {
+		return (int) (price * (1 - interest));
+	}
 }

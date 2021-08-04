@@ -19,7 +19,7 @@ public class Run {
 		m.insertMember(new Vip("이순신", "Vip", 10000));
 		m.insertMember(new VVip("사임당", "VVip", 100000));
 
-		m.printData();
+		m.printBuyInfo(10000);
 
 	}
 }

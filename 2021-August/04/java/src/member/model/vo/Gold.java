@@ -1,6 +1,8 @@
 package member.model.vo;
 
-public class Gold extends Member {
+import member.controller.Buyable;
+
+public class Gold extends Member implements Buyable {
 
 	private static float interest = 0.05f;
 
@@ -15,6 +17,11 @@ public class Gold extends Member {
 	@Override
 	public float getInterestPoint() {
 		return this.getPoint() * interest;
+	}
+
+	@Override
+	public int buy(int price) {
+		return (int) (price * (1 - interest));
 	}
 
 }

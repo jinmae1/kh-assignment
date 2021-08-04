@@ -1,6 +1,7 @@
 package member.controller;
 
 import member.model.vo.Member;
+import member.controller.Buyable;
 
 public class MemberManager {
 
@@ -26,6 +27,16 @@ public class MemberManager {
 	private String formatData(Member member) {
 		return String.format("%s\t\t%s\t\t%d\t\t%.2f", member.getName(), member.getGrade(), member.getPoint(),
 				member.getInterestPoint());
+	}
+
+	public void printBuyInfo(int price) {
+		for (Member member : member) {
+			if (member == null)
+				break;
+			System.out.printf("%s\t등급회원 %s은 %d원 상품을 %d원에 구매합니다.%n", member.getGrade(), member.getName(), price,
+					((Buyable) member).buy(price));
+
+		}
 	}
 
 }
