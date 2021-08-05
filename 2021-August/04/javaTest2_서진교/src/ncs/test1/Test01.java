@@ -24,7 +24,7 @@ public class Test01 {
 
 			grade[i] = Double.parseDouble(input[i]);
 
-			if (10 <= grade[i] && grade[i] <= 90) {
+			if (10 <= grade[i] && grade[i] <= 99) {
 				if (grade[i] != (int) grade[i]) {
 					System.out.println("다시 입력 하세요");
 					return;
@@ -39,14 +39,14 @@ public class Test01 {
 		eval += ((grade[2] + grade[3]) / 2) * 0.2f;
 		eval += grade[4] * 0.2f;
 
-		switch ((int) eval) {
-			case 90:
+		switch ((int) eval / 10) {
+			case 9:
 				_class = "Gold";
 				break;
-			case 80:
+			case 8:
 				_class = "Silver";
 				break;
-			case 70:
+			case 7:
 				_class = "Bronze";
 				break;
 			default:
