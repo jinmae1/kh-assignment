@@ -1,6 +1,6 @@
 package member.model.vo;
 
-public class Member {
+public abstract class Member implements Buyable {
 
 	private String name;
 	private String grade;

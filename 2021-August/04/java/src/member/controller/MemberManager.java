@@ -1,6 +1,6 @@
 package member.controller;
 
-import member.model.vo.*;
+import member.model.vo.Member;
 
 public class MemberManager {
 
@@ -33,7 +33,7 @@ public class MemberManager {
 			if (member == null)
 				break;
 			System.out.printf("%s\t등급회원 %s은 %d원 상품을 %d원에 구매합니다.%n", member.getGrade(), member.getName(), price,
-					((Buyable) member).buy(price));
+					member.buy(price));
 
 		}
 	}

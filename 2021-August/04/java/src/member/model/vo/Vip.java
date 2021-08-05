@@ -1,6 +1,6 @@
 package member.model.vo;
 
-public class Vip extends Member implements Buyable {
+public class Vip extends Member {
 
 	private static float interest = 0.10f;
 

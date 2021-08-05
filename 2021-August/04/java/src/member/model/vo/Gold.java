@@ -1,6 +1,6 @@
 package member.model.vo;
 
-public class Gold extends Member implements Buyable {
+public class Gold extends Member {
 
 	private static float interest = 0.05f;
 

@@ -1,6 +1,6 @@
 package member.model.vo;
 
-public class VVip extends Member implements Buyable {
+public class VVip extends Member {
 
 	private static float interest = 0.15f;
 
