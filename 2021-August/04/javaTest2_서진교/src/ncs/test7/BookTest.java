@@ -22,7 +22,7 @@ public class BookTest {
 		for (Book book : bookArray) {
 			total += book.getBookPrice() * (100 - book.getDiscountRate()) / 100.0;
 		}
-		System.out.printf("%.1f%n", total);
+		System.out.printf("%.1f원%n", total);
 	}
 
 }

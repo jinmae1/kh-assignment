@@ -20,8 +20,8 @@ public class TvTest {
 
 		Arrays.sort(tvArray);
 
-		System.out.println("가격이 가장 비싸안 제품: " + tvArray[NUM_TV - 1]);
-		System.out.println("가격이 가장 저렴한 제품: " + tvArray[0]);
+		System.out.println("가격이 가장 비싸안 제품: " + tvArray[NUM_TV - 1].getName());
+		System.out.println("가격이 가장 저렴한 제품: " + tvArray[0].getName());
 
 	}
 }
