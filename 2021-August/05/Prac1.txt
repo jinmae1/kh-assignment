@@ -1,0 +1,22 @@
+[날짜관련 실습문제1]
+
+[문제1]
+패키지 com.api.calendar.TodayTest
+오늘 날짜를 다음 형식으로 출력하세요.
+
+-> 오늘은 2019년 8월 5일 목요일
+
+
+[문제2] 
+패키지 com.api.calendar.CalcYourDays.java
+사용자로부터 생일(년, 월, 일)을 입력받고, 오늘이 태어난지 몇일 되었는지 출력하세요.
+
+
+[문제3] 
+패키지 com.api.calendar.CalcDday.test2
+Calendar클래스를 이용해서 D-DAY계산기를 만드세요.
+출력은 다음과 같습니다.
+
+ ->  193일 남았습니다. 	(D-DAY 전)
+ ->  D-DAY입니다.      	(D-DAY)	
+ ->  20일 지났습니다.	(D-DAY가 지난 경우)
