@@ -1,7 +1,6 @@
 package member.controller;
 
-import member.model.vo.Member;
-import member.controller.Buyable;
+import member.model.vo.*;
 
 public class MemberManager {
 

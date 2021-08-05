@@ -1,7 +1,5 @@
 package member.model.vo;
 
-import member.controller.Buyable;
-
 public class Silver extends Member implements Buyable {
 
 	private static float interest = 0.02f;
