@@ -1,6 +1,6 @@
 package ncs.test3;
 
-public class Tv {
+public class Tv implements Comparable<Tv> {
 
 	private String name;
 	private int price;
@@ -41,7 +41,17 @@ public class Tv {
 
 	@Override
 	public String toString() {
-		return name + "\t" + price + "\t" + description;
+		return String.format("%-10s%d %s", name, price, description);
+	}
+
+	@Override
+	public int compareTo(Tv obj) {
+		if (this.price == obj.price)
+			return 0;
+		else if (this.price < obj.price)
+			return -1;
+		else
+			return 1;
 	}
 
 }
