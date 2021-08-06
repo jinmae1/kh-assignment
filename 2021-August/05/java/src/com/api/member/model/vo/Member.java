@@ -16,12 +16,7 @@ public class Member {
 		this.memberName = memberName;
 		this.height = Integer.parseInt(height);
 		this.weight = Integer.parseInt(weight);
-
-		int year = Integer.parseInt(birth.substring(0, 4));
-		int month = Integer.parseInt(birth.substring(4, 6));
-		int day = Integer.parseInt(birth.substring(6, 8));
-
-		this.birth = new GregorianCalendar(year, month - 1, day);
+		this.birth = this.createBirthCal(birth);
 	}
 
 	public String information() {
@@ -29,4 +24,11 @@ public class Member {
 				birth.get(Calendar.YEAR), birth.get(Calendar.MONTH) + 1, birth.get(Calendar.DAY_OF_MONTH));
 	}
 
+	private GregorianCalendar createBirthCal(String birth) {
+		int year = Integer.parseInt(birth.substring(0, 4));
+		int month = Integer.parseInt(birth.substring(4, 6));
+		int day = Integer.parseInt(birth.substring(6, 8));
+
+		return new GregorianCalendar(year, month - 1, day);
+	}
 }
