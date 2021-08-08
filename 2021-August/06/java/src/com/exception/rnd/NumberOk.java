@@ -7,39 +7,37 @@ import java.util.Scanner;
 public class NumberOk {
 
 	private int randNum;
-	private static int tries;
+	private int tries;
 
 	public static void main(String[] args) {
 
 		int userInput;
-		int retVal;
+		int result;
 
 		NumberOk nok = new NumberOk();
-
 		nok.startGame();
 
 		while (true) {
 
 			try {
-
 				System.out.print("정수 입력: ");
 				userInput = nok.getNumber();
-				retVal = nok.checkNumber(userInput);
+				result = nok.checkNumber(userInput);
 
-				if (retVal == 1)
-					System.out.println("입력한 정수보다 작습니다." + "(" + tries + "회)");
-				else if (retVal == -1)
-					System.out.println("입력한 정수보다 큽니다." + "(" + tries + "회)");
-				else if (retVal == 0) {
-					System.out.println(tries + "회 만에 맞혔습니다.");
+				if (result == 1)
+					System.out.println("입력한 정수보다 작습니다." + "(" + nok.tries + "회)");
+				else if (result == -1)
+					System.out.println("입력한 정수보다 큽니다." + "(" + nok.tries + "회)");
+				else if (result == 0) {
+					System.out.println(nok.tries + "회 만에 맞혔습니다.");
 
-					if (nok.doContinue()) {
+					if (nok.shouldContinue()) {
 						nok.startGame();
 						continue;
 					} else
 						break;
 				}
-				tries++;
+				nok.tries++;
 				continue;
 
 			} catch (InputMismatchException ime) {
@@ -51,7 +49,7 @@ public class NumberOk {
 	}
 
 	public int getNumber() throws InputMismatchException {
-		int num = 0;
+		int num;
 		Scanner sc = new Scanner(System.in);
 
 		try {
@@ -68,25 +66,25 @@ public class NumberOk {
 	public int checkNumber(int num) {
 		if (this.randNum == num)
 			return 0;
-
-		return num > this.randNum ? 1 : -1;
+		else
+			return this.randNum < num ? 1 : -1;
 	}
 
-	private boolean doContinue() {
-		String answer;
-		char y = 'n';
+	private boolean shouldContinue() {
+		char y_n;
+		String input;
 		Scanner sc = new Scanner(System.in);
 
 		while (true) {
 			System.out.print("계속 하시겠습니까?(y/n): ");
-			answer = sc.next();
+			input = sc.next();
 
-			if (answer.length() == 1) {
-				y = answer.charAt(0);
+			if (input.length() == 1) {
+				y_n = input.charAt(0);
 
-				if ((y == 'y') || (y == 'Y'))
+				if ((y_n == 'y') || (y_n == 'Y'))
 					return true;
-				else if ((y == 'n') || (y == 'N'))
+				else if ((y_n == 'n') || (y_n == 'N'))
 					return false;
 			}
 			System.err.println("(y 혹은 n만 입력하세요)");
@@ -95,9 +93,9 @@ public class NumberOk {
 	}
 
 	public void startGame() {
-		Random rand = new Random();
-		this.randNum = rand.nextInt(100) + 1;
-		tries = 1;
+		this.randNum = new Random().nextInt(100) + 1;
+		this.tries = 1;
+
 		System.out.println("\n==== 새 게임 시작 ====");
 		System.out.println("임의의 정수 발생");
 	}

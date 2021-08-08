@@ -32,6 +32,7 @@ public class Run {
 
 			} catch (Exception e) {
 				e.printStackTrace();
+				continue;
 			}
 			break;
 		}

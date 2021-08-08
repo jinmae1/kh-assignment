@@ -14,7 +14,6 @@ public class Run {
 
 		int a = 0;
 		int b = 0;
-		boolean isDouble = false;
 
 		NumberProcess np = new NumberProcess();
 		Scanner sc = new Scanner(System.in);
@@ -28,8 +27,7 @@ public class Run {
 				System.out.print("Num2: ");
 				b = sc.nextInt();
 
-				isDouble = np.checkDouble(a, b);
-				if (isDouble)
+				if (np.checkDouble(a, b))
 					System.out.printf("%d는 %d의 배수입니다.%n", a, b);
 				else
 					System.out.printf("%d는 %d의 배수가 아닙니다.%n", a, b);
