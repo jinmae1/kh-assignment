@@ -59,6 +59,51 @@ public class BookManager {
 		}
 	}
 
+	public void fileSave2() {
+
+		Book[] book = new Book[5];
+
+		book[0] = new Book("The Fellowship of the Ring", "Gandalf", 98_000, new GregorianCalendar(1954, 7 - 1, 29));
+		book[1] = new Book("The Two Towers", "Aragorn", 38_000, new GregorianCalendar(1954, 11 - 1, 11));
+		book[2] = new Book("The Return of the King", "Legolas", 68_000, new GregorianCalendar(1955, 10 - 1, 20));
+		book[3] = new Book("The Silmarillion", "Gimli", 18_000, new GregorianCalendar(1977, 9 - 1, 15));
+		book[4] = new Book("The Hobbit", "Frodo", 9_000, new GregorianCalendar(1937, 9 - 1, 21));
+
+		// for (int i = 0; i < book.length; i++) {
+		// book[i] = inputBook();
+		// }
+
+		try (ObjectOutputStream oos = new ObjectOutputStream(
+				(new BufferedOutputStream(new FileOutputStream(FILE_NAME))))) {
+			oos.writeObject(book);
+			System.out.println(book);
+			System.out.println("저장 완료");
+
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+
+	}
+
+	public void fileRead2() {
+		Book[] book = new Book[10];
+
+		try (ObjectInputStream ois = new ObjectInputStream(new BufferedInputStream(new FileInputStream(FILE_NAME)))) {
+
+			int i = 0;
+			for (Book b : (Book[]) ois.readObject()) {
+				book[i] = b;
+				System.out.println(book[i]);
+				i++;
+			}
+			System.out.println("읽기 완료");
+
+		} catch (IOException | ClassNotFoundException e) {
+			e.printStackTrace();
+		}
+
+	}
+
 	public Book inputBook() {
 		String[] key = { "Title", "Author", "Price", "Publication Date(yyyy.MM.dd)" };
 		Object[] val = new Object[4];
