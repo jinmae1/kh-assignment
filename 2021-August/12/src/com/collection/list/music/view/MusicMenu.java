@@ -106,21 +106,22 @@ public class MusicMenu {
 
 			switch (choice) {
 				case 1:
-					printList(manager.orderBy(new MusicSingerAsc()));
+					printList(manager.orderBy(new MusicSingerComparator()));
 					break;
 				case 2:
-					printList(manager.orderBy(new MusicSingerDsc()));
+					printList(manager.orderBy(Collections.reverseOrder(new MusicSingerComparator())));
 					break;
 				case 3:
-					printList(manager.orderBy(new MusicTitleAsc()));
+					printList(manager.orderBy(new MusicTitleComparator()));
 					break;
 				case 4:
-					printList(manager.orderBy(new MusicTitleDsc()));
+					printList(manager.orderBy(Collections.reverseOrder(new MusicTitleComparator())));
 					break;
 				case 5:
 					return;
 
 				default:
+					System.out.println("잘못 입력하셨습니다.");
 					break;
 			}
 		}
