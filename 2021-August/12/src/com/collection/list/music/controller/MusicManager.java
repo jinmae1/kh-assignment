@@ -32,7 +32,7 @@ public class MusicManager {
 			if (title.equals(music.getTitle()))
 				return musicList.remove(music);
 
-		return true;
+		return false;
 	}
 
 	public boolean replaceMusic(Music oldMusic, Music newMusic) {
