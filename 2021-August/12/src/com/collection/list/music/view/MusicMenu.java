@@ -1,9 +1,9 @@
 package com.collection.list.music.view;
 
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
 
 import com.collection.list.music.controller.MusicManager;
+import com.collection.list.music.model.compare.*;
 import com.collection.list.music.model.vo.Music;
 
 public class MusicMenu {
@@ -15,13 +15,12 @@ public class MusicMenu {
 		String menu = "----- Music Playlist Menu -----\r\n" + 
 					"1.목록보기\r\n" + 
 					"2.마지막에 음악추가\r\n" + 
-				"3.맨처음에 음악추가\r\n"
-				+ 
+					"3.맨처음에 음악추가\r\n" + 
 					"4.곡삭제\r\n" + 
 					"5.곡변경\r\n" + 
 					"6.곡명검색\r\n" + 
 					"7.가수검색\r\n" + 
-					"8.목록정렬(곡명오름차순)\r\n" + 
+					"8.목록정렬\r\n" + 
 					"0.종료\r\n" + 
 					"--------------------------------\r\n" + 
 					">> 메뉴선택 : ";
@@ -34,14 +33,17 @@ public class MusicMenu {
 				case 1:
 					printList(manager.selectList());
 					break;
+
 				case 2:
 					sc.nextLine();
 					manager.addList(inputMusic());
 					break;
+
 				case 3:
 					sc.nextLine();
 					manager.addAtZero(inputMusic());
 					break;
+
 				case 4:
 					sc.nextLine();
 					if (manager.removeMusic(inputTitle()))
@@ -49,25 +51,34 @@ public class MusicMenu {
 					else
 						System.out.println("## 삭제 실패 ##");
 					break;
-				case 5:
 
+				case 5:
 					sc.nextLine();
-					if (manager.replaceMusic(inputMusic(), inputMusic()))
-						System.out.println("## 수정 성공 ##");
+					System.out.println("=== 변경될 음악 ===");
+					Music oldMusic = inputMusic();
+					System.out.println("=== 새로운 음악 ===");
+					Music newMusic = inputMusic();
+
+					if (manager.replaceMusic(oldMusic, newMusic))
+						System.out.println("## 변경 성공 ##");
 					else
-						System.out.println("## 수정 실패 ##");
+						System.out.println("## 변경 실패 ##");
 					break;
+
 				case 6:
 					sc.nextLine();
-					manager.searchMusicByTitle(inputTitle());
+					printList(manager.searchMusicByTitle(inputTitle()));
 					break;
+
 				case 7:
 					sc.nextLine();
-					manager.searchMusicBySinger(inputSinger());
+					printList(manager.searchMusicBySinger(inputSinger()));
 					break;
+
 				case 8:
 					orderMenu();
 					break;
+
 				case 0:
 					return;
 
@@ -90,20 +101,24 @@ public class MusicMenu {
 										" >> 메뉴 선택 : ";
 
 		while (true) {
-			System.out.println(orderMenu);
+			System.out.print(orderMenu);
 			int choice = sc.nextInt();
 
 			switch (choice) {
 				case 1:
+					printList(manager.orderBy(new MusicSingerAsc()));
 					break;
 				case 2:
+					printList(manager.orderBy(new MusicSingerDsc()));
 					break;
 				case 3:
+					printList(manager.orderBy(new MusicTitleAsc()));
 					break;
 				case 4:
+					printList(manager.orderBy(new MusicTitleDsc()));
 					break;
 				case 5:
-					break;
+					return;
 
 				default:
 					break;
@@ -115,9 +130,10 @@ public class MusicMenu {
 	public void printList(List<Music> list) {
 		System.out.println();
 		System.out.println("---------- 음악 리스트 ----------");
+		int i = 0;
 		for (Music music : list)
-			System.out.println(music);
-		System.out.println("-------------------------------");
+			System.out.println(++i + ": " + music);
+		System.out.println("---------------------------------");
 		System.out.println();
 	}
 	

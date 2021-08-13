@@ -1,6 +1,6 @@
 package com.collection.list.music.model.vo;
 
-public class Music {
+public class Music implements Comparable<Music> {
 	private String title;
 	private String singer;
 
@@ -31,9 +31,27 @@ public class Music {
 
 	@Override
 	public String toString() {
-		// return "Music [title=" + title + ",singer= " + singer + "]\n";
 		return title + " - " + singer;
+	}
 
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+
+		Music another = (Music) obj;
+		if (!this.title.equals(another.title))
+			return false;
+
+		if (!this.singer.equals(another.singer))
+			return false;
+
+		return true;
+	}
+
+	@Override
+	public int compareTo(Music other) {
+		return this.title.compareTo(other.title);
 	}
 
 }

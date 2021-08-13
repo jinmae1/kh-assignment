@@ -1,8 +1,6 @@
 package com.collection.list.music.controller;
 
-import java.util.ArrayList;
-import java.util.List;
-
+import java.util.*;
 import com.collection.list.music.model.vo.Music;
 
 public class MusicManager {
@@ -38,39 +36,40 @@ public class MusicManager {
 	}
 
 	public boolean replaceMusic(Music oldMusic, Music newMusic) {
-		int index = musicList.indexOf(oldMusic);
-		if (index > -1)
-			musicList.add(index, newMusic);
+		int index = -1;
+		for (Music music : musicList)
+			if (oldMusic.equals(music)) {
+				index = musicList.indexOf(music);
+				musicList.set(index, newMusic);
+				break;
+			}
 
 		return index > -1;
-
 	}
 
 	public List<Music> searchMusicByTitle(String title) {
-		List<Music> matchList = new ArrayList<>();
+		List<Music> matchedList = new ArrayList<>();
 		for (Music music : musicList)
 			if (title.equals(music.getTitle()))
-				matchList.add(music);
+				matchedList.add(music);
 
-		return matchList;
+		return matchedList;
 	}
 
 	public List<Music> searchMusicBySinger(String singer) {
-		List<Music> matchList = new ArrayList<>();
+		List<Music> matchedList = new ArrayList<>();
 		for (Music music : musicList)
 			if (singer.equals(music.getSinger()))
-				matchList.add(music);
+				matchedList.add(music);
 
-		return matchList;
+		return matchedList;
 	}
 
-	// public List<Music> orderBy(Comparator<Music> c) {
-	// return new ArrayList<Music>();
-	// }
+	public List<Music> orderBy(Comparator<Music> c) {
+		List<Music> sortedList = new ArrayList<>(musicList);
+		sortedList.sort(c);
+
+		return sortedList;
+	}
 
 }
-
-
-
-
-
