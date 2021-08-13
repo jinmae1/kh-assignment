@@ -1,0 +1,94 @@
+## @실습문제
+음악playlist를 관리하는 프로그램을 만들어 보세요.
+
+1. vo클래스 작성
+@com.collection.list.music.model.vo.Music.java
+-title:String
+-singer:String
+
+getter/setter, 기본생성자/파라미터있는생성자, toString 오버라이드
+
+2. 실행클래스(메인메소드 포함)
+@com.collection.list.music.run.Run.java
+
+3. 메뉴클래스
+@com.collection.list.music.view.MusicMenu.java
+* 다음메뉴를 반복적으로 출력하고, 사용자선택값에 따라 적절한 컨트롤클래스 MusicManager객체의 메소드를 호출할 것.
+* 필요한 사용자 입력값(곡명/가수명/Music객체정보)은 MusicMenu클래스에서 작성후 Manager객체로 전달함.
+
+-sc:Scanner
+-manager:MusicManager
+
+    ================ Music Playlist Menu ================
+    1.목록보기
+    2.마지막에 음악추가
+    3.맨처음에 음악추가
+    4.곡삭제
+    5.곡변경
+    6.곡명검색
+    7.가수검색
+    8.목록정렬(곡명오름차순)
+    0.종료
+    ================================================================
+    >> 메뉴선택 : 
+
+정렬 메뉴
+-각 Comparator객체를 생성해 manager객체의 orderBy(Comparator)메소드 호출할 것.
+
+    ================== 정렬 메뉴 ===================
+	1. 가수명 오름차순
+	2. 가수명 내림차순
+	3. 곡명 오름차순
+	4. 곡명 내림차순
+	5. 메인메뉴 돌아가기
+	================================================
+
+a. 리스트 출력메소드
++ printList(List<Music>) : void
+
+b. 곡명 입력메소드
++ inputTitle() : String
+
+c. 가수 입력메소드
++ inputSinger() : String
+
+d. 음악 입력메소드(곡명, 가수 모두 입력)
++ inputMusic() : Music
+
+
+
+
+
+
+4. 컨트롤러 클래스 MusicManager
+패키지 com.collection.list.music.controller
+-musicList:ArrayList<Music> => 초기화블럭을 사용하여 5곡을 미리 만들어두기
+
+구현할 메소드는 다음과 같다.
+--------------------------------------------------------------------
+1. 음악리스트 리턴
++ selectList():List<Music>
+
+2. 마지막에 음악추가 : 사용자로부터 곡명과 가수를 입력받아 리스트에 저장하는 메소드. 
++ addList(Music) : void
+
+3. 맨처음에 음악추가 : 리스트 최상위(0번지)에 음악을 추가하는 메소드
++ addAtZero(Music) : void
+
+4. 특정곡을 삭제하는 메소드(제목을 전달받아 검색후, 최초로 검색된 음악을 삭제)
+	삭제여부를 리턴
++ removeMusic(String) : boolean
+
+5. 특정곡을 바꾸는 메소드(이전 음악객체, 새 음악객체를 전달해서 교체)
+	교체 성공여부를 리턴
++ boolean replaceMusic(Music oldMusic, Music newMusic) : boolean
+
+6. 특정곡이 있는지 검사하는 메소드 : 복수개의 결과가 나올수 있음. 
+(곡명일부로 검색해서 해당곡이 있다면, 곡정보(제목/가수)를 출력하고, 없다면, "검색결과가 없습니다"출력)
++ searchMusicByTitle(String title) : List<Music>
+
+7. 가수명으로 검색 메소드 : 복수개의 결과가 나올수 있음.
++ searchMusicBySinger(String singer) : List<Music>
+
+8. 서브메뉴 - 각 정렬 메소드 : Comparable/Comparator 인터페이스를 적절히 활용할 것
++ orderBy(Comparator<Music> c) : List<Musice>
