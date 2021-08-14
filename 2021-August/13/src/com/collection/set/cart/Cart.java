@@ -43,7 +43,7 @@ public class Cart implements Comparable<Cart> {
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(this.name);
+		return Objects.hash(name);
 	}
 
 	@Override

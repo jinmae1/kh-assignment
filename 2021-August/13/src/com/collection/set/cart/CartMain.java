@@ -15,8 +15,8 @@ public class CartMain {
 		while (true) {
 
 			System.out.println("===== 장바구니 =====");
-			System.out.println("1. 과일 담기");
-			System.out.println("2. 과일 조회");
+			System.out.println("1. 상품 담기");
+			System.out.println("2. 상품 조회");
 			System.out.println("3. 전체 조회");
 			System.out.println("0. 종료");
 			System.out.println("===================");
@@ -46,17 +46,17 @@ public class CartMain {
 	}
 
 	private static void addToCart(Set<Cart> cart) {
-		String fruitName;
+		String itemName;
 		int count;
 
 		while (true) {
 
-			System.out.print("> 과일 입력: ");
-			fruitName = sc.next();
-			if ("exit".equals(fruitName))
+			System.out.print("> 상품 입력: ");
+			itemName = sc.next();
+			if ("exit".equals(itemName))
 				break;
 
-			if (cart.contains(new Cart(fruitName))) {
+			if (cart.contains(new Cart(itemName))) {
 				System.out.println("이미 등록된 상품입니다.");
 				System.out.println("다시 입력하세요");
 			} else {
@@ -67,7 +67,7 @@ public class CartMain {
 					break;
 				System.out.println("+++ 0 이하 입력 금지 +++ ");
 			}
-			cart.add(new Cart(fruitName, count));
+			cart.add(new Cart(itemName, count));
 
 				System.out.println("+++++ 입력 완료 +++++\n");
 				System.out.println("계속 입력하세요");
@@ -76,13 +76,13 @@ public class CartMain {
 	}
 
 	private static void searchCart(Set<Cart> cart) {
-		String fruitName;
+		String itemName;
 
-		System.out.print("> 과일 입력: ");
-		fruitName = sc.next();
+		System.out.print("> 상품 입력: ");
+		itemName = sc.next();
 
 		for (Cart fruit : cart) {
-			if (fruit.equals(new Cart(fruitName)))
+			if (fruit.equals(new Cart(itemName)))
 				System.out.println(fruit.getCount() + "개가 담겨있습니다.");
 
 		}
@@ -94,9 +94,9 @@ public class CartMain {
 		int total = 0;
 
 		int i = 0;
-		for (Cart fruit : cartList) {
-			System.out.println(++i + ". " + fruit);
-			total += fruit.getCount();
+		for (Cart item : cartList) {
+			System.out.println(++i + ". " + item);
+			total += item.getCount();
 		}
 		System.out.println("-----------------------------");
 		System.out.println("총 " + total + "개의 상품이 담겨있습니다.");
