@@ -83,9 +83,12 @@ public class CartMain {
 
 		for (Cart fruit : cart) {
 			if (fruit.equals(new Cart(itemName)))
+			{
 				System.out.println(fruit.getCount() + "개가 담겨있습니다.");
-
+				return;
+			}
 		}
+		System.out.println("조회한 상품은 장바구니에 없습니다.");
 	}
 
 	private static void showCart(Set<Cart> cart) {
