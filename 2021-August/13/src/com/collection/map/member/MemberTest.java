@@ -41,6 +41,7 @@ public class MemberTest {
 		String[] userId = { "jangbg", "sejong" };
 		String does = "does";
 		for (String id : userId) {
+			does = "does";
 			if (!userExists(id)) {
 				does += "n't";
 			}
