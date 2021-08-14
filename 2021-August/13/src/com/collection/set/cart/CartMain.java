@@ -1,18 +1,16 @@
 package com.collection.set.cart;
 
-import java.util.HashSet;
-import java.util.Scanner;
-import java.util.Set;
+import java.util.*;
 
 public class CartMain {
 
-	private Set<Cart> carts;
+	private Set<Cart> cart;
 	private static Scanner sc = new Scanner(System.in);
 
 	public static void main(String[] args) {
 
 		CartMain main = new CartMain();
-		main.carts = new HashSet<Cart>();
+		main.cart = new HashSet<Cart>();
 
 		while (true) {
 
@@ -27,13 +25,13 @@ public class CartMain {
 
 			switch (sc.nextInt()) {
 				case 1:
-					addToCart(main.carts);
+					addToCart(main.cart);
 					break;
 				case 2:
-					searchCart(main.carts);
+					searchCart(main.cart);
 					break;
 				case 3:
-					showCart(main.carts);
+					showCart(main.cart);
 					break;
 				case 0:
 					return;
@@ -47,7 +45,7 @@ public class CartMain {
 
 	}
 
-	private static void addToCart(Set<Cart> carts) {
+	private static void addToCart(Set<Cart> cart) {
 		String fruitName;
 		int count;
 
@@ -58,13 +56,18 @@ public class CartMain {
 			if ("exit".equals(fruitName))
 				break;
 
-			if (carts.contains(new Cart(fruitName))) {
+			if (cart.contains(new Cart(fruitName))) {
 				System.out.println("이미 등록된 상품입니다.");
 				System.out.println("다시 입력하세요");
 			} else {
+				while (true) {
 				System.out.print("> 수량 입력: ");
 				count = sc.nextInt();
-				carts.add(new Cart(fruitName, count));
+				if (count > 0)
+					break;
+				System.out.println("+++ 0 이하 입력 금지 +++ ");
+			}
+			cart.add(new Cart(fruitName, count));
 
 				System.out.println("+++++ 입력 완료 +++++\n");
 				System.out.println("계속 입력하세요");
@@ -72,24 +75,31 @@ public class CartMain {
 		}
 	}
 
-	private static void searchCart(Set<Cart> carts) {
+	private static void searchCart(Set<Cart> cart) {
 		String fruitName;
 
 		System.out.print("> 과일 입력: ");
 		fruitName = sc.next();
 
-		for (Cart cart : carts) {
-			if (carts.contains(new Cart(fruitName)))
-				System.out.println(cart.getCount() + "개가 담겨있습니다.");
+		for (Cart fruit : cart) {
+			if (fruit.equals(new Cart(fruitName)))
+				System.out.println(fruit.getCount() + "개가 담겨있습니다.");
 
 		}
 	}
 
-	private static void showCart(Set<Cart> carts) {
-		for (Cart cart : carts) {
-			System.out.println(cart);
+	private static void showCart(Set<Cart> cart) {
+		List<Cart> cartList = new ArrayList<>(cart);
+		Collections.sort(cartList);
+		int total = 0;
 
+		int i = 0;
+		for (Cart fruit : cartList) {
+			System.out.println(++i + ". " + fruit);
+			total += fruit.getCount();
 		}
+		System.out.println("-----------------------------");
+		System.out.println("총 " + total + "개의 상품이 담겨있습니다.");
 	}
 
 	private static void clearScreen() {

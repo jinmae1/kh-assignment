@@ -2,7 +2,7 @@ package com.collection.set.cart;
 
 import java.util.Objects;
 
-public class Cart {
+public class Cart implements Comparable<Cart> {
 
 	private String name;
 	private int count;
@@ -60,5 +60,10 @@ public class Cart {
 		// return false;
 
 		return true;
+	}
+
+	@Override
+	public int compareTo(Cart c) {
+		return this.name.compareTo(c.name);
 	}
 }
