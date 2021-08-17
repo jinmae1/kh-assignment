@@ -81,13 +81,13 @@ public class CartMain {
 		System.out.print("> 상품 입력: ");
 		itemName = sc.next();
 
-		for (Cart fruit : cart) {
-			if (fruit.equals(new Cart(itemName)))
-			{
-				System.out.println(fruit.getCount() + "개가 담겨있습니다.");
+		for (Cart item : cart) {
+			if (item.equals(new Cart(itemName))) {
+				System.out.println(item.getCount() + "개가 담겨있습니다.");
 				return;
 			}
 		}
+
 		System.out.println("조회한 상품은 장바구니에 없습니다.");
 	}
 

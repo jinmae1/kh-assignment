@@ -1,0 +1,13 @@
+ - 실행용클래스 com.thread.sleep.SleepTest
+ + sendAphorism() : void 
+
+ - 좋아하는 속담, 경구 10개를 문자열배열에 담고, 3초마다 랜덤하게 출력하세요.
+ - 10번 출력후 종료하세요.
+
+
+
+<문제 2>
+- 실행용 클래스 : com.thread.alphabet.AlphabetTest.java
+- 쓰레드 클래스 : com.thread.alphabet.UpperAlphbetThread.java
+			   com.thread.alphabet.LowerAlphbetThread.java	
+두개의 멀티쓰레드를 만들고, 각각 알파벳대문자, 알파벳 소문자를 출력하세요.
