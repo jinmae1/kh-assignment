@@ -50,8 +50,6 @@ LEFT JOIN JOB j
 WHERE
 	rownum = 1;
 
-
-
 -- 4.
 SELECT
 	e.EMP_ID,
@@ -184,6 +182,15 @@ WHERE
 ORDER BY
 	e1.EMP_ID;
 	
+select e.emp_name 사원명
+      , dept_title 부서명
+      , e2.emp_name 동료사원명
+from employee e
+ join employee e2 on(e.dept_code = e2.dept_code)
+ left join department d on e.dept_code = dept_id
+where e.emp_name != e2.emp_name
+order by 1;
+​
 
 
 -- 11.
