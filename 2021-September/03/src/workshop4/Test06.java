@@ -11,13 +11,13 @@ public class Test06 {
 
 		try {
 			if (args.length != 2)
-				throw new Exception();
+				throw new Exception("다시 입력하세요");
 
 			num1 = Integer.parseInt(args[0]);
 			num2 = Integer.parseInt(args[1]);
 
 			if (!(1 <= num1 && num1 <= 5) || !(1 <= num2 && num2 <= 5)) {
-				throw new ArrayIndexOutOfBoundsException();
+				throw new ArrayIndexOutOfBoundsException("숫자를 확인하세요");
 			}
 
 			int[][] arr = new int[num1][num2];
@@ -34,9 +34,9 @@ public class Test06 {
 			System.out.println("avg: " + (float) sum / (num1 * num2));
 
 		} catch (ArrayIndexOutOfBoundsException | NegativeArraySizeException e) {
-			System.out.println("숫자를 확인하세요");
+			System.out.println(e.getMessage());
 		} catch (Exception e) {
-			System.out.println("다시 입력하세요");
+			System.out.println(e.getMessage());
 		}
 
 	}
