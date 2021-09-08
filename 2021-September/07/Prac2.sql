@@ -1,5 +1,5 @@
 --1.
-
+SELECT
 	STUDENT_NO AS "학번",
 	STUDENT_NAME AS "이름",
 	ENTRANCE_DATE AS "입학년도"
